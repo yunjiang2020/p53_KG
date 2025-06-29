@@ -1,0 +1,1144 @@
+@prefix : <http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/> .
+
+<http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation> rdf:type owl:Ontology ;
+                                                                   rdfs:comment "" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/activates_pathway
+:activates_pathway rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf :has_effect_on_pathway ;
+                   rdfs:domain owl:Thing ;
+                   rdfs:range :Pathway .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/activates_protein
+:activates_protein rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Modulator ;
+                   rdfs:range :Protein .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/chemical_activates_pathway
+:chemical_activates_pathway rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf :activates_pathway ;
+                            rdfs:domain :ChemicalModulator ;
+                            rdfs:range :Pathway .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/chemical_downregulates_transcription_of
+:chemical_downregulates_transcription_of rdf:type owl:ObjectProperty ;
+                                         rdfs:subPropertyOf :downregulates_transcription_of ;
+                                         rdfs:domain :ChemicalModulator ;
+                                         rdfs:range :Gene .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/chemical_inhibits_pathway
+:chemical_inhibits_pathway rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf :inhibits_pathway ;
+                           rdfs:domain :ChemicalModulator ;
+                           rdfs:range :Pathway .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/chemical_upregulates_transcription_of
+:chemical_upregulates_transcription_of rdf:type owl:ObjectProperty ;
+                                       rdfs:subPropertyOf :upregulates_transcription_of .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/degrades_protein
+:degrades_protein rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Modulator ,
+                              :Protein ;
+                  rdfs:range :Protein .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/downregulates_transcription_of
+:downregulates_transcription_of rdf:type owl:ObjectProperty ;
+                                rdfs:subPropertyOf :modulates_transcription_of ;
+                                rdfs:domain owl:Thing ;
+                                rdfs:range :Gene .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/encodes
+:encodes rdf:type owl:ObjectProperty ;
+         rdfs:domain :GeneVariant ;
+         rdfs:range :Protein ;
+         rdfs:comment "gene encodes protein" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/harbours_variant
+:harbours_variant rdf:type owl:ObjectProperty ;
+                  rdfs:domain :CellLine ;
+                  rdfs:range :GeneVariant ;
+                  rdfs:comment "Cell_Lines hosts Gene_Variants" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/has_effect_on_pathway
+:has_effect_on_pathway rdf:type owl:ObjectProperty ;
+                       rdfs:domain owl:Thing ;
+                       rdfs:range :Pathway ;
+                       rdfs:comment "protein participates in pathway" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/inhibits_pathway
+:inhibits_pathway rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :has_effect_on_pathway ;
+                  rdfs:domain owl:Thing ;
+                  rdfs:range :Pathway .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/inhibits_protein
+:inhibits_protein rdf:type owl:ObjectProperty ;
+                  rdfs:domain :ChemicalModulator ;
+                  rdfs:range :Protein .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/is_variant_of
+:is_variant_of rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdfs:domain :GeneVariant ;
+               rdfs:range :Gene .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/modulates_transcription_of
+:modulates_transcription_of rdf:type owl:ObjectProperty ;
+                            rdfs:domain owl:Thing ;
+                            rdfs:range :Gene .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/participates_in_pathway
+:participates_in_pathway rdf:type owl:ObjectProperty ;
+                         rdfs:domain :Protein ;
+                         rdfs:range :Pathway .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/protein_activates_pathway
+:protein_activates_pathway rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf :activates_pathway ;
+                           rdfs:domain :Protein ,
+                                       :ProteinVariant ;
+                           rdfs:range :Pathway .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/protein_downregulates_transcription_of
+:protein_downregulates_transcription_of rdf:type owl:ObjectProperty ;
+                                        rdfs:subPropertyOf :downregulates_transcription_of ;
+                                        rdfs:domain :Protein ;
+                                        rdfs:range :Gene .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/protein_inhibits_pathway
+:protein_inhibits_pathway rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf :inhibits_pathway ;
+                          rdfs:domain :Protein ,
+                                      :ProteinVariant ;
+                          rdfs:range :Pathway .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/protein_upregulates_transcription_of
+:protein_upregulates_transcription_of rdf:type owl:ObjectProperty ;
+                                      rdfs:subPropertyOf :upregulates_transcription_of .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/reactivated_by
+:reactivated_by rdf:type owl:ObjectProperty ;
+                rdfs:domain :ReactivatedProtein ;
+                rdfs:range :ChemicalModulator .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/reactivated_from
+:reactivated_from rdf:type owl:ObjectProperty ;
+                  rdfs:domain :ReactivatedProtein ;
+                  rdfs:range :MisfoldedProtein .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/reactivates
+:reactivates rdf:type owl:ObjectProperty ;
+             rdfs:domain :ChemicalModulator ;
+             rdfs:range :Protein .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/stabilizes_protein
+:stabilizes_protein rdf:type owl:ObjectProperty ;
+                    rdfs:domain :Modulator ;
+                    rdfs:range :Protein .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/upregulates_transcription_of
+:upregulates_transcription_of rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf :modulates_transcription_of ;
+                              rdfs:domain owl:Thing ;
+                              rdfs:range :Gene .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/hasATCCID
+:hasATCCID rdf:type owl:DatatypeProperty ;
+           rdfs:domain :CellLine .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/hasCASNo
+:hasCASNo rdf:type owl:DatatypeProperty ;
+          rdfs:domain :ChemicalModulator .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/hasDepMapID
+:hasDepMapID rdf:type owl:DatatypeProperty ;
+             rdfs:domain :CellLine .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/hasDrugBankID
+:hasDrugBankID rdf:type owl:DatatypeProperty ;
+               rdfs:domain :ChemicalModulator .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/hasHGNCID
+:hasHGNCID rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Gene .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/hasKEGGID
+:hasKEGGID rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Pathway .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/hasReactomeID
+:hasReactomeID rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf owl:topDataProperty ;
+               rdfs:domain :Pathway .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/hasUniProtID
+:hasUniProtID rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Protein .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/CellLine
+:CellLine rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/ChemicalModulator
+:ChemicalModulator rdf:type owl:Class ;
+                   rdfs:subClassOf :Modulator .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/Gene
+:Gene rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/GeneVariant
+:GeneVariant rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/MisfoldedProtein
+:MisfoldedProtein rdf:type owl:Class ;
+                  rdfs:subClassOf :ProteinVariant .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/Modulator
+:Modulator rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/Mutation
+:Mutation rdf:type owl:Class ;
+          rdfs:subClassOf :GeneVariant .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/Null
+:Null rdf:type owl:Class ;
+      rdfs:subClassOf :Mutation .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/Pathway
+:Pathway rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/PeptideModulator
+:PeptideModulator rdf:type owl:Class ;
+                  rdfs:subClassOf :Modulator .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/Point_Mutation
+:Point_Mutation rdf:type owl:Class ;
+                rdfs:subClassOf :Mutation .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/Protein
+:Protein rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/ProteinVariant
+:ProteinVariant rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/ReactivatedProtein
+:ReactivatedProtein rdf:type owl:Class ;
+                    rdfs:subClassOf :ProteinVariant .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/WildType
+:WildType rdf:type owl:Class ;
+          rdfs:subClassOf :GeneVariant .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/WildtypeProtein
+:WildtypeProtein rdf:type owl:Class ;
+                 rdfs:subClassOf :ProteinVariant .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/bone
+:bone rdf:type owl:Class ;
+      rdfs:subClassOf :cancer .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/breast
+:breast rdf:type owl:Class ;
+        rdfs:subClassOf :cancer .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/cancer
+:cancer rdf:type owl:Class ;
+        rdfs:subClassOf :CellLine .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/colon
+:colon rdf:type owl:Class ;
+       rdfs:subClassOf :cancer .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/immortalized
+:immortalized rdf:type owl:Class ;
+              rdfs:subClassOf :primary .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/lung
+:lung rdf:type owl:Class ;
+      rdfs:subClassOf :cancer .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/pancreas
+:pancreas rdf:type owl:Class ;
+          rdfs:subClassOf :cancer .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/primary
+:primary rdf:type owl:Class ;
+         rdfs:subClassOf :CellLine .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/stomach
+:stomach rdf:type owl:Class ;
+         rdfs:subClassOf :cancer .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/A549
+:A549 rdf:type owl:NamedIndividual ,
+               :lung ;
+      :harbours_variant :TP53_WildType ;
+      :hasATCCID "CRM-CCL-185" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/ABT-737
+:ABT-737 rdf:type owl:NamedIndividual ,
+                  :ChemicalModulator ;
+         :activates_pathway :P53_regulates_cell_death_pathway ;
+         :activates_protein :BAX_WildType_protein ;
+         :hasCASNo "852808-04-9" ;
+         rdfs:comment "binds to Bcl-2 and freeing BAX 10.1016/j.ccr.2006.10.006" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/ADH-6
+:ADH-6 rdf:type owl:NamedIndividual ,
+                :ChemicalModulator ;
+       :activates_pathway :P53_regulates_cell_cycle_pathway ,
+                          :P53_regulates_cell_death_pathway ;
+       :reactivates :P53_R248W_protein ;
+       :hasCASNo "2227429-65-2" ;
+       rdfs:comment "https://doi.org/10.1038/s41467-021-23985-1" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/AGS
+:AGS rdf:type owl:NamedIndividual ,
+              :stomach ;
+     :harbours_variant :TP53_WildType ;
+     :hasATCCID "CRL-1739" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/APR246
+:APR246 rdf:type owl:NamedIndividual ,
+                 :ChemicalModulator ;
+        :reactivates :P53_R175H_protein ,
+                     :P53_R273H_protein ;
+        :hasCASNo "5291-32-7" ;
+        :hasDrugBankID "DB11684" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/AU565
+:AU565 rdf:type owl:NamedIndividual ,
+                :breast ;
+       :harbours_variant :TP53_R175H_gene ;
+       :hasATCCID "CRL-2351" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/BAM7
+:BAM7 rdf:type owl:NamedIndividual ,
+               :ChemicalModulator ;
+      :activates_pathway :P53_regulates_cell_death_pathway ;
+      :activates_protein :BAX_WildType_protein ;
+      :hasCASNo "331244-89-4" ;
+      rdfs:comment "https://doi.org/10.1038/nchembio.995" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/BAX_WildType
+:BAX_WildType rdf:type owl:NamedIndividual ,
+                       :WildType ;
+              :encodes :BAX_WildType_protein ;
+              :is_variant_of :BAX_gene .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/BAX_WildType_protein
+:BAX_WildType_protein rdf:type owl:NamedIndividual ,
+                               :WildtypeProtein ;
+                      :activates_pathway :P53_regulates_cell_death_pathway ;
+                      :is_variant_of :BAX_protein .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/BAX_gene
+:BAX_gene rdf:type owl:NamedIndividual ,
+                   :Gene ;
+          :encodes :BAX_protein ;
+          :hasHGNCID "959" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/BAX_protein
+:BAX_protein rdf:type owl:NamedIndividual ,
+                      :Protein ;
+             :hasUniProtID "Q07812" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/BBC3_WildType
+:BBC3_WildType rdf:type owl:NamedIndividual ,
+                        :WildType ;
+               :encodes :PUMA_WildType_protein ;
+               :is_variant_of :BBC3_gene .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/BBC3_gene
+:BBC3_gene rdf:type owl:NamedIndividual ,
+                    :Gene ;
+           :encodes :PUMA_protein ;
+           :hasHGNCID "17868" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/BTSA1
+:BTSA1 rdf:type owl:NamedIndividual ,
+                :ChemicalModulator ;
+       :activates_pathway :P53_regulates_cell_death_pathway ;
+       :activates_protein :BAX_WildType_protein ;
+       :hasCASNo "314761-14-3" ;
+       rdfs:comment "10.1016/j.ccell.2017.09.001" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/BXPC-3
+:BXPC-3 rdf:type owl:NamedIndividual ,
+                 :pancreas ;
+        :harbours_variant :TP53_Y220C_gene ;
+        :hasATCCID "CRL-1687" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/CD437
+:CD437 rdf:type owl:NamedIndividual ,
+                :ChemicalModulator ;
+       :activates_pathway :P53_regulates_cell_cycle_pathway ;
+       :activates_protein :GADD45α_WildType_protein ;
+       :hasCASNo "125316-60-1" ;
+       rdfs:comment "https://doi.org/10.1093/nar/27.15.3111 increases mRNA level" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/CDKN1A_WildType
+:CDKN1A_WildType rdf:type owl:NamedIndividual ,
+                          :WildType ;
+                 :encodes :P21_wildtype_protein ;
+                 :is_variant_of :CDKN1A_gene .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/CDKN1A_gene
+:CDKN1A_gene rdf:type owl:NamedIndividual ,
+                      :Gene ;
+             :encodes :P21_protein ;
+             :hasHGNCID "1784" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/COLO_320DM
+:COLO_320DM rdf:type owl:NamedIndividual ,
+                     :colon ;
+            :harbours_variant :TP53_R248W_gene ;
+            :hasATCCID "CCL-220" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/COTI2
+:COTI2 rdf:type owl:NamedIndividual ,
+                :ChemicalModulator ;
+       :reactivates :P53_R175H_protein ,
+                    :P53_R273C_protein ,
+                    :P53_R273H_protein ;
+       :hasCASNo "1039455-84-9" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/CP-31398
+:CP-31398 rdf:type owl:NamedIndividual ,
+                   :ChemicalModulator ;
+          :activates_pathway :P53_regulates_cell_death_pathway ;
+          :reactivates :P53_R273H_reactivated ;
+          :upregulates_transcription_of :CDKN1A_gene ;
+          :hasCASNo "259199-65-0" ;
+          rdfs:comment "10.4161/cbt.1.1.41" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/DPBQ
+:DPBQ rdf:type owl:NamedIndividual ,
+               :ChemicalModulator ;
+      :activates_pathway :P53_regulates_cell_cycle_pathway ,
+                         :P53_regulates_cell_death_pathway ;
+      rdfs:comment "https://doi.org/10.1158/1535-7163.MCT-15-0527 High-Ploidy targeting" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/Fluorizoline
+:Fluorizoline rdf:type owl:NamedIndividual ,
+                       :ChemicalModulator ;
+              :activates_pathway :P53_regulates_cell_death_pathway ;
+              :activates_protein :NOXA_WildType_protein ;
+              :hasCASNo "1362243-70-6" ;
+              rdfs:comment "10.3324/haematol.2016.162958" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/Fusicoccin
+:Fusicoccin rdf:type owl:NamedIndividual ,
+                     :ChemicalModulator ;
+            :activates_pathway :P53_regulates_cell_death_pathway ;
+            :stabilizes_protein :_14_3_3_sigma_WildType_protein ;
+            :hasCASNo "20108-30-9" ;
+            rdfs:comment "10.1593/tlo.12409 inhibits cancer invasion" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/GADD45A_WildType
+:GADD45A_WildType rdf:type owl:NamedIndividual ,
+                           :WildType ;
+                  :encodes :GADD45α_WildType_protein ;
+                  :is_variant_of :GADD45A_gene .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/GADD45A_gene
+:GADD45A_gene rdf:type owl:NamedIndividual ,
+                       :Gene ;
+              :encodes :GADD45α_protein ;
+              :hasHGNCID "4095" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/GADD45α_WildType_protein
+:GADD45α_WildType_protein rdf:type owl:NamedIndividual ,
+                                   :WildtypeProtein ;
+                          :activates_pathway :P53_regulates_cell_cycle_pathway .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/GADD45α_protein
+:GADD45α_protein rdf:type owl:NamedIndividual ,
+                          :Protein ;
+                 :hasUniProtID "P24522" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/HCC1419
+:HCC1419 rdf:type owl:NamedIndividual ,
+                  :breast ;
+         :harbours_variant :TP53_Y220C_gene ;
+         :hasATCCID "CRL-2326" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/HCC70
+:HCC70 rdf:type owl:NamedIndividual ,
+                :breast ;
+       :harbours_variant :TP53_R248Q_gene ;
+       :hasATCCID "CRL-2315" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/JNJ-26854165
+:JNJ-26854165 rdf:type owl:NamedIndividual ,
+                       :ChemicalModulator ;
+              :inhibits_protein :MDM2_protein ;
+              :hasCASNo "881202-45-5" ;
+              :hasDrugBankID "DB12027" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/KATO-III
+:KATO-III rdf:type owl:NamedIndividual ,
+                   :stomach ;
+          :harbours_variant :TP53_null ;
+          :hasATCCID "HTB-103" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/LS123
+:LS123 rdf:type owl:NamedIndividual ,
+                :colon ;
+       :harbours_variant :TP53_R175H_gene ;
+       :hasATCCID "CCL-255" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/LS174T
+:LS174T rdf:type owl:NamedIndividual ,
+                 :colon ;
+        :harbours_variant :TP53_WildType ;
+        :hasATCCID "CL-188" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/MB710
+:MB710 rdf:type owl:NamedIndividual ,
+                :ChemicalModulator ;
+       :reactivates :P53_Y220C_protein ;
+       :hasCASNo "2230044-57-0" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/MDA-MB-361
+:MDA-MB-361 rdf:type owl:NamedIndividual ,
+                     :breast ;
+            :harbours_variant :TP53_WildType ;
+            :hasATCCID "HTB-27" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/MDA-MB-468
+:MDA-MB-468 rdf:type owl:NamedIndividual ,
+                     :breast ;
+            :harbours_variant :TP53_R273H_gene ;
+            :hasATCCID "HTB-132" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/MDM2_protein
+:MDM2_protein rdf:type owl:NamedIndividual ,
+                       :Protein ;
+              :degrades_protein :P53_wildtype_protein ;
+              :protein_inhibits_pathway :P53_regulates_cell_cycle_pathway ,
+                                        :P53_regulates_cell_death_pathway ;
+              :hasUniProtID "Q00987" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/MIA-PaCa-2
+:MIA-PaCa-2 rdf:type owl:NamedIndividual ,
+                     :pancreas ;
+            :harbours_variant :TP53_R248W_gene ;
+            :hasATCCID "CRL-1420" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/MIRA-1
+:MIRA-1 rdf:type owl:NamedIndividual ,
+                 :ChemicalModulator ;
+        :reactivates :P53_R175H_protein ,
+                     :P53_R248Q_protein ,
+                     :P53_R248W_protein ,
+                     :P53_R273H_protein ;
+        :hasCASNo "72835-26-8" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/MS182
+:MS182 rdf:type owl:NamedIndividual ,
+                :ChemicalModulator ;
+       :reactivates :P53_Y220C_protein ;
+       :hasCASNo "3034773-62-8" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/NCI-H1048
+:NCI-H1048 rdf:type owl:NamedIndividual ,
+                    :lung ;
+           :harbours_variant :TP53_R273C_gene ;
+           :hasATCCID "CRL-5853" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/NCI-H1299
+:NCI-H1299 rdf:type owl:NamedIndividual ,
+                    :lung ;
+           :harbours_variant :TP53_null ;
+           :hasATCCID "CRL-5803" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/NCI-H1770
+:NCI-H1770 rdf:type owl:NamedIndividual ,
+                    :lung ;
+           :harbours_variant :TP53_R248W_gene ;
+           :hasATCCID "CRL-5893" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/NCI-H1882
+:NCI-H1882 rdf:type owl:NamedIndividual ,
+                    :lung ;
+           :harbours_variant :TP53_WildType ;
+           :hasATCCID "CRL-5903" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/NCI-H1975
+:NCI-H1975 rdf:type owl:NamedIndividual ,
+                    :lung ;
+           :harbours_variant :TP53_R273H_gene ;
+           :hasATCCID "CRL-5908" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/NCI-H2342
+:NCI-H2342 rdf:type owl:NamedIndividual ,
+                    :lung ;
+           :harbours_variant :TP53_Y220C_gene ;
+           :hasATCCID "CRL-5941" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/NCI-H719
+:NCI-H719 rdf:type owl:NamedIndividual ,
+                   :lung ;
+          :harbours_variant :TP53_R248Q_gene ;
+          :hasATCCID "CRL-5837" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/NCI-H748
+:NCI-H748 rdf:type owl:NamedIndividual ,
+                   :lung ;
+          :harbours_variant :TP53_Y220C_gene ;
+          :hasATCCID "CRL-5841" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/NOXA_WildType_protein
+:NOXA_WildType_protein rdf:type owl:NamedIndividual ,
+                                :WildtypeProtein ;
+                       :activates_pathway :P53_regulates_cell_death_pathway ;
+                       :is_variant_of :NOXA_protein .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/NOXA_protein
+:NOXA_protein rdf:type owl:NamedIndividual ,
+                       :Protein ;
+              :hasUniProtID "Q13794" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/NSC319726
+:NSC319726 rdf:type owl:NamedIndividual ,
+                    :ChemicalModulator ;
+           :reactivates :P53_R175H_protein ;
+           :hasCASNo "71555-25-4" ;
+           rdfs:comment "https://doi.org/10.1016/j.ccr.2012.03.042" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/NSC328784
+:NSC328784 rdf:type owl:NamedIndividual ,
+                    :ChemicalModulator ;
+           :activates_pathway :P53_regulates_cell_death_pathway ;
+           :reactivates :P53_R175H_protein ;
+           :hasCASNo "79514-41-3" ;
+           rdfs:comment "10.1124/mol.116.107409" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/NSC59984
+:NSC59984 rdf:type owl:NamedIndividual ,
+                   :ChemicalModulator ;
+          :degrades_protein :P53_R248W_protein ;
+          :upregulates_transcription_of :BBC3_gene ,
+                                        :CDKN1A_gene ;
+          :hasCASNo "803647-40-7" ;
+          rdfs:comment "https://doi.org/10.1158/0008-5472.CAN-13-1079" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/Neobractatin
+:Neobractatin rdf:type owl:NamedIndividual ,
+                       :ChemicalModulator ;
+              :activates_pathway :P53_regulates_cell_cycle_pathway ;
+              :activates_protein :GADD45α_WildType_protein ;
+              :hasCASNo "N/A" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/Nutlin_3
+:Nutlin_3 rdf:type owl:NamedIndividual ,
+                   :ChemicalModulator ;
+          :inhibits_protein :MDM2_protein ;
+          :hasCASNo "548472-68-0" ;
+          :hasDrugBankID "DB17039" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/P21_protein
+:P21_protein rdf:type owl:NamedIndividual ,
+                      :Protein ;
+             :hasUniProtID "P38936" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/P21_wildtype_protein
+:P21_wildtype_protein rdf:type owl:NamedIndividual ,
+                               :WildtypeProtein ;
+                      :activates_pathway :P53_regulates_cell_cycle_pathway ;
+                      rdfs:comment "CIP1, WAF1" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/P53_R175H_protein
+:P53_R175H_protein rdf:type owl:NamedIndividual ,
+                            :MisfoldedProtein .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/P53_R175H_reactivated
+:P53_R175H_reactivated rdf:type owl:NamedIndividual ,
+                                :ReactivatedProtein ;
+                       :protein_activates_pathway :P53_regulates_cell_cycle_pathway ,
+                                                  :P53_regulates_cell_death_pathway ;
+                       :reactivated_by :APR246 ,
+                                       :COTI2 ,
+                                       :MIRA-1 ,
+                                       :NSC319726 ;
+                       :reactivated_from :P53_R175H_protein ;
+                       :upregulates_transcription_of :BAX_gene ,
+                                                     :BBC3_gene ,
+                                                     :CDKN1A_gene ,
+                                                     :GADD45A_gene ,
+                                                     :PMAIP1_gene ,
+                                                     :SFN_gene .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/P53_R248Q_protein
+:P53_R248Q_protein rdf:type owl:NamedIndividual ,
+                            :MisfoldedProtein .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/P53_R248Q_reactivated
+:P53_R248Q_reactivated rdf:type owl:NamedIndividual ,
+                                :ReactivatedProtein ;
+                       :protein_activates_pathway :P53_regulates_cell_cycle_pathway ,
+                                                  :P53_regulates_cell_death_pathway ;
+                       :reactivated_by :MIRA-1 ;
+                       :reactivated_from :P53_R248Q_protein .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/P53_R248W_protein
+:P53_R248W_protein rdf:type owl:NamedIndividual ,
+                            :MisfoldedProtein .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/P53_R248W_reactivated
+:P53_R248W_reactivated rdf:type owl:NamedIndividual ,
+                                :ReactivatedProtein ;
+                       :protein_activates_pathway :P53_regulates_cell_death_pathway ;
+                       :reactivated_by :MIRA-1 ;
+                       :reactivated_from :P53_R248W_reactivated .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/P53_R273C_protein
+:P53_R273C_protein rdf:type owl:NamedIndividual ,
+                            :MisfoldedProtein .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/P53_R273C_reactivated
+:P53_R273C_reactivated rdf:type owl:NamedIndividual ,
+                                :ReactivatedProtein ;
+                       :protein_activates_pathway :P53_regulates_cell_cycle_pathway ,
+                                                  :P53_regulates_cell_death_pathway ;
+                       :reactivated_by :COTI2 ;
+                       :reactivated_from :P53_R273C_protein .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/P53_R273H_protein
+:P53_R273H_protein rdf:type owl:NamedIndividual ,
+                            :MisfoldedProtein .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/P53_R273H_reactivated
+:P53_R273H_reactivated rdf:type owl:NamedIndividual ,
+                                :ReactivatedProtein ;
+                       :protein_activates_pathway :P53_regulates_cell_cycle_pathway ,
+                                                  :P53_regulates_cell_death_pathway ;
+                       :reactivated_by :APR246 ,
+                                       :COTI2 ,
+                                       :MIRA-1 ;
+                       :reactivated_from :P53_R273H_protein .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/P53_Y220C_protein
+:P53_Y220C_protein rdf:type owl:NamedIndividual ,
+                            :MisfoldedProtein .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/P53_Y220C_reactivated
+:P53_Y220C_reactivated rdf:type owl:NamedIndividual ,
+                                :ReactivatedProtein ;
+                       :protein_activates_pathway :P53_regulates_cell_cycle_pathway ,
+                                                  :P53_regulates_cell_death_pathway ;
+                       :reactivated_by :PC14586 ;
+                       :reactivated_from :P53_Y220C_protein .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/P53_protein
+:P53_protein rdf:type owl:NamedIndividual ,
+                      :Protein ;
+             :hasUniProtID "P04637" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/P53_regulates_cell_cycle_pathway
+:P53_regulates_cell_cycle_pathway rdf:type owl:NamedIndividual ,
+                                           :Pathway ;
+                                  :hasReactomeID "R-HSA-6791312.6" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/P53_regulates_cell_death_pathway
+:P53_regulates_cell_death_pathway rdf:type owl:NamedIndividual ,
+                                           :Pathway ;
+                                  :hasReactomeID "R-HSA-5633008.4" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/P53_wildtype_protein
+:P53_wildtype_protein rdf:type owl:NamedIndividual ,
+                               :WildtypeProtein ;
+                      :protein_activates_pathway :P53_regulates_cell_cycle_pathway ,
+                                                 :P53_regulates_cell_death_pathway ;
+                      :hasUniProtID "P04637" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/PANC_1
+:PANC_1 rdf:type owl:NamedIndividual ,
+                 :pancreas ;
+        :harbours_variant :TP53_R273H_gene ;
+        :hasATCCID "CRL-1469" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/PC14586
+:PC14586 rdf:type owl:NamedIndividual ,
+                  :ChemicalModulator ;
+         :reactivates :P53_Y220C_protein ;
+         :hasCASNo "2636846-41-6" ;
+         :hasDrugBankID "DB18980" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/PMAIP1_WildType
+:PMAIP1_WildType rdf:type owl:NamedIndividual ,
+                          :WildType ;
+                 :encodes :NOXA_WildType_protein ;
+                 :is_variant_of :PMAIP1_gene .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/PMAIP1_gene
+:PMAIP1_gene rdf:type owl:NamedIndividual ,
+                      :Gene ;
+             :encodes :NOXA_protein ;
+             :hasHGNCID "9108" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/PUMA_BH3
+:PUMA_BH3 rdf:type owl:NamedIndividual ,
+                   :PeptideModulator ;
+          :activates_pathway :P53_regulates_cell_death_pathway ;
+          rdfs:comment "MCE Cat. No.: HY-P1562" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/PUMA_WildType_protein
+:PUMA_WildType_protein rdf:type owl:NamedIndividual ,
+                                :WildtypeProtein ;
+                       :activates_pathway :P53_regulates_cell_death_pathway ;
+                       :is_variant_of :PUMA_protein .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/PUMA_protein
+:PUMA_protein rdf:type owl:NamedIndividual ,
+                       :Protein ;
+              :hasUniProtID "Q9BXH1" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/RITA
+:RITA rdf:type owl:NamedIndividual ,
+               :ChemicalModulator ;
+      :activates_pathway :P53_regulates_cell_death_pathway ;
+      :reactivates :P53_R175H_protein ,
+                   :P53_R248W_protein ,
+                   :P53_R273H_protein ;
+      :hasCASNo "213261-59-7" ;
+      rdfs:comment "10.1074/jbc.M501664200" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/SFN_WildType
+:SFN_WildType rdf:type owl:NamedIndividual ,
+                       :WildType ;
+              :encodes :_14_3_3_sigma_WildType_protein ;
+              :is_variant_of :SFN_gene .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/SFN_gene
+:SFN_gene rdf:type owl:NamedIndividual ,
+                   :Gene ;
+          :encodes :_14_3_3_sigma_protein ;
+          :hasHGNCID "10773" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/SK-BR-3
+:SK-BR-3 rdf:type owl:NamedIndividual ,
+                  :breast ;
+         :harbours_variant :TP53_R175H_gene ;
+         :hasATCCID "HTB-30" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/SW1990
+:SW1990 rdf:type owl:NamedIndividual ,
+                 :pancreas ;
+        :harbours_variant :TP53_WildType ;
+        :hasATCCID "CRL-2172" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/SW48
+:SW48 rdf:type owl:NamedIndividual ,
+               :colon ;
+      :harbours_variant :TP53_WildType ;
+      :hasATCCID "CCL-231" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/Sabutoclax
+:Sabutoclax rdf:type owl:NamedIndividual ,
+                     :ChemicalModulator ;
+            :activates_pathway :P53_regulates_cell_death_pathway ;
+            :activates_protein :PUMA_WildType_protein ;
+            :hasCASNo "1228108-65-3" ;
+            rdfs:comment "10.1016/j.canlet.2018.02.036" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/Saos-2
+:Saos-2 rdf:type owl:NamedIndividual ,
+                 :bone ;
+        :harbours_variant :TP53_null ;
+        :hasATCCID "HTB-85" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/TP53_R175H_gene
+:TP53_R175H_gene rdf:type owl:NamedIndividual ,
+                          :Point_Mutation ;
+                 :encodes :P53_R175H_protein ;
+                 :is_variant_of :TP53_gene .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/TP53_R248Q_gene
+:TP53_R248Q_gene rdf:type owl:NamedIndividual ,
+                          :Point_Mutation ;
+                 :encodes :P53_R248Q_protein ;
+                 :is_variant_of :TP53_gene .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/TP53_R248W_gene
+:TP53_R248W_gene rdf:type owl:NamedIndividual ,
+                          :Point_Mutation ;
+                 :encodes :P53_R248W_protein ;
+                 :is_variant_of :TP53_gene .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/TP53_R273C_gene
+:TP53_R273C_gene rdf:type owl:NamedIndividual ,
+                          :Point_Mutation ;
+                 :encodes :P53_R273C_protein ;
+                 :is_variant_of :TP53_gene .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/TP53_R273H_gene
+:TP53_R273H_gene rdf:type owl:NamedIndividual ,
+                          :Point_Mutation ;
+                 :encodes :P53_R273H_protein ;
+                 :is_variant_of :TP53_gene .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/TP53_WildType
+:TP53_WildType rdf:type owl:NamedIndividual ,
+                        :WildType ;
+               :encodes :P53_wildtype_protein ;
+               :is_variant_of :TP53_gene .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/TP53_Y220C_gene
+:TP53_Y220C_gene rdf:type owl:NamedIndividual ,
+                          :Point_Mutation ;
+                 :encodes :P53_Y220C_protein ;
+                 :is_variant_of :TP53_gene .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/TP53_gene
+:TP53_gene rdf:type owl:NamedIndividual ,
+                    :Gene ;
+           :encodes :P53_protein ;
+           :hasHGNCID "11998" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/TP53_null
+:TP53_null rdf:type owl:NamedIndividual ,
+                    :Null ;
+           :is_variant_of :TP53_gene .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/U-2_OS
+:U-2_OS rdf:type owl:NamedIndividual ,
+                 :bone ;
+        :harbours_variant :TP53_WildType ;
+        :hasATCCID "HTB-96" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/USP7-IN-2
+:USP7-IN-2 rdf:type owl:NamedIndividual ,
+                    :ChemicalModulator ;
+           :degrades_protein :MDM2_protein ;
+           :stabilizes_protein :P53_protein ;
+           :hasCASNo "2196243-57-7" ;
+           rdfs:comment "10.1038/nchembio.2528" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/WiDr
+:WiDr rdf:type owl:NamedIndividual ,
+               :colon ;
+      :harbours_variant :TP53_R273H_gene ;
+      :hasATCCID "CCL-218" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/_14_3_3_sigma_WildType_protein
+:_14_3_3_sigma_WildType_protein rdf:type owl:NamedIndividual ,
+                                         :WildtypeProtein ;
+                                :activates_pathway :P53_regulates_cell_cycle_pathway ;
+                                :is_variant_of :_14_3_3_sigma_protein .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/_14_3_3_sigma_protein
+:_14_3_3_sigma_protein rdf:type owl:NamedIndividual ,
+                                :Protein ;
+                       :hasUniProtID "P31947" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/hygrolidin
+:hygrolidin rdf:type owl:NamedIndividual ,
+                     :ChemicalModulator ;
+            :activates_pathway :P53_regulates_cell_cycle_pathway ;
+            :activates_protein :P21_wildtype_protein ;
+            :hasCASNo "83329-73-1" ;
+            rdfs:comment "10.1016/s0006-291x(02)02416-6" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/p53_Activator_7
+:p53_Activator_7 rdf:type owl:NamedIndividual ,
+                          :ChemicalModulator ;
+                 :reactivates :P53_Y220C_protein ;
+                 :hasCASNo "2849340-59-4" .
+
+
+###  http://www.semanticweb.org/16380/ontologies/2025/4/p53_mutation/tenovin-6
+:tenovin-6 rdf:type owl:NamedIndividual ,
+                    :ChemicalModulator ;
+           :activates_pathway :P53_regulates_cell_cycle_pathway ,
+                              :P53_regulates_cell_death_pathway ;
+           :activates_protein :P53_wildtype_protein ;
+           :hasCASNo "1011557-82-6" .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
